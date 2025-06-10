@@ -1,13 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
+import { Inter } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter", // Укажите переменную
   subsets: ["latin"],
 });
 
@@ -19,9 +16,45 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
+        <header className="relative flex p-4 bg-white text-black">
+          <div className="flex items-center ml-10"></div>
+          <Image src="/logo.svg" alt="Logo" width={65} height={65} />
+          <div className="flex flex-grow text-center space-x-12 justify-center items-center">
+            <Link href="/home" className="hover:text-[#0c68f4]">
+              Home
+            </Link>
+            <Link href="/products" className="hover:text-[#0c68f4]">
+              Products
+            </Link>
+            <Link href="/blog" className="hover:text-[#0c68f4]">
+              Blog
+            </Link>
+            <Link href="/faq" className="hover:text-[#0c68f4]">
+              FAQ
+            </Link>
+            <Link href="/contuctus" className="hover:text-[#0c68f4]">
+              Contact Us
+            </Link>
+          </div>
+          <div className="flex items-center space-x-2 mr-10">
+            <Link href="/search">
+              <Image src="/search.svg" alt="Search" width={24} height={24} />
+            </Link>
+            <Link href="/basket">
+              <Image src="/basket.svg" alt="Basket" width={24} height={24} />
+            </Link>
+            <Link href="/account">
+              <Image
+                src="/person.svg"
+                alt="Personal Account"
+                width={24}
+                height={24}
+              />
+            </Link>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0C68F4] mt-2"></div>
+        </header>
         {children}
       </body>
     </html>
