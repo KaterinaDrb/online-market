@@ -1,29 +1,15 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Regular.otf") format("truetype");
-  font-weight: 400; /* Регулярный вес */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Bold.otf") format("truetype");
-  font-weight: 700; /* Жирный вес */
-  font-style: normal;
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-inter: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-primary: oklch(55.9% 0.224 260.33);
+  --color-secondary: oklch(66.91% 0.199 41.76);
+  --color-primary-700: oklch(26.71% 0.093 258.91);
 }
 
 @media (prefers-color-scheme: dark) {

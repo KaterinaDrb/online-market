@@ -2,21 +2,67 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-      </main>
+    <div className="mx-20">
+      <div className="flex justify-between">
+        <div className="mt-14">
+          <h1 className="text-primary-700 text-6xl font-semibold mt-5">
+            Tech Heim
+          </h1>
+          <h2 className="text-3xl font-medium mt-10">
+            <span className="text-primary-700">&quot;Join the </span>
+            <span className="text-secondary">digital revolution</span>
+            <span className="text-primary-700">&quot;</span>
+          </h2>
+
+          <button className="bg-secondary text-white text-base font-light rounded-lg px-4 py-2 w-72 h-14 mt-28">
+            Explore More
+          </button>
+        </div>
+        <div className="ml-16">
+          <Image src="/laptops.png" alt="Search" width={600} height={320} />
+        </div>
+      </div>
+      <div className="flex items-center justify-center text-center font-light my-12 gap-5">
+        <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
+          <Image
+            src="/accessories.png"
+            alt="Accessories"
+            width={148}
+            height={148}
+          />
+          <p>Accessories</p>
+        </div>
+        <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
+          <Image src="/camera.png" alt="Camera" width={148} height={148} />
+          <p>Camera</p>
+        </div>
+        <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
+          <Image src="/laptop.png" alt="Laptop" width={148} height={148} />
+          <p>Laptop</p>
+        </div>
+        <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
+          <Image
+            src="/smart phone.png"
+            alt="Smart Phone"
+            width={148}
+            height={148}
+          />
+          <p>Smart Phone</p>
+        </div>
+        <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
+          <Image src="/gaming.png" alt="Gaming" width={148} height={148} />
+          <p>Gaming</p>
+        </div>
+        <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
+          <Image
+            src="/smart Watch.png"
+            alt="Smart Watch"
+            width={148}
+            height={148}
+          />
+          <p>Smart Watch</p>
+        </div>
+      </div>
     </div>
   );
 }
