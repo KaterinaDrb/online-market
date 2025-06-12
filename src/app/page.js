@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "../components/button";
 
 export default function Home() {
   return (
@@ -62,6 +63,14 @@ export default function Home() {
           />
           <p>Smart Watch</p>
         </div>
+      </div>
+
+      <h1>Button examples</h1>
+      <div className="flex gap-3">
+        <Button color="primary" state="default" />
+        <Button color="secondary" state="default" />
+        <Button color="primary" state="disabled" />
+        <Button color="secondary" state="disabled" />
       </div>
     </div>
   );
