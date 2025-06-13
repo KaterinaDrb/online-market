@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body>
         <header className="relative flex p-4 bg-white text-black">
           <div className="flex items-center ml-10">
-            <Image src="/logo.svg" alt="Logo" width={65} height={65} />
+            <Image src="/logo.svg" alt="Logo" width={55} height={55} />
           </div>
           <div className="flex flex-grow text-center space-x-12 justify-center items-center">
             <Link href="/" className="hover:text-primary">

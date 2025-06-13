@@ -67,10 +67,61 @@ export default function Home() {
 
       <h1>Button examples</h1>
       <div className="flex gap-3">
-        <Button color="primary" state="default" />
-        <Button color="secondary" state="default" />
-        <Button color="primary" state="disabled" />
-        <Button color="secondary" state="disabled" />
+        <table className="border-separate border-spacing-2">
+          <tbody>
+            <tr>
+              <td>
+                <Button color="primary" state="default" style="fill" />
+              </td>
+              <td>
+                <Button color="primary" state="default" style="outlined" />
+              </td>
+              <td>
+                <Button color="primary" state="default" style="text" />
+              </td>
+              <td>
+                <Button color="primary" state="default" style="smallText" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <Button color="primary" state="disabled" style="fill" />
+              </td>
+              <td>
+                <Button color="primary" state="disabled" style="outlined" />
+              </td>
+              <td>
+                <Button color="primary" state="disabled" style="text" />
+              </td>
+              <td>
+                <Button color="primary" state="disabled" style="smallText" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button color="secondary" state="default" style="fill" />
+              </td>
+              <td>
+                <Button color="secondary" state="default" style="outlined" />
+              </td>
+              <td>
+                <Button color="secondary" state="default" style="text" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button color="secondary" state="disabled" style="fill" />
+              </td>
+              <td>
+                <Button color="secondary" state="disabled" style="outlined" />
+              </td>
+              <td>
+                <Button color="secondary" state="disabled" style="text" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
