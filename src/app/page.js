@@ -1,5 +1,10 @@
+"use client";
 import Image from "next/image";
 import Button from "../components/button";
+import Input from "../components/input";
+import ShoppingCartIcon from "../components/ShoppingCartIcon";
+import UserIcon from "../components/UserIcon";
+import CloseCircleIcon from "../components/CloseCircleIcon";
 
 export default function Home() {
   return (
@@ -71,57 +76,81 @@ export default function Home() {
           <tbody>
             <tr>
               <td>
-                <Button color="primary" state="default" style="fill" />
+                <Button
+                  color="primary"
+                  style="fill"
+                  startIcon={ShoppingCartIcon}
+                  endIcon={ShoppingCartIcon}
+                />
               </td>
               <td>
-                <Button color="primary" state="default" style="outlined" />
+                <Button
+                  color="primary"
+                  style="outlined"
+                  endIcon={ShoppingCartIcon}
+                />
               </td>
               <td>
-                <Button color="primary" state="default" style="text" />
+                <Button color="primary" style="text" />
               </td>
               <td>
-                <Button color="primary" state="default" style="smallText" />
+                <Button color="primary" style="smallText" />
               </td>
             </tr>
 
             <tr>
               <td>
-                <Button color="primary" state="disabled" style="fill" />
+                <Button color="primary" disabled={true} style="fill" />
               </td>
               <td>
-                <Button color="primary" state="disabled" style="outlined" />
+                <Button color="primary" disabled={true} style="outlined" />
               </td>
               <td>
-                <Button color="primary" state="disabled" style="text" />
+                <Button color="primary" disabled={true} style="text" />
               </td>
               <td>
-                <Button color="primary" state="disabled" style="smallText" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Button color="secondary" state="default" style="fill" />
-              </td>
-              <td>
-                <Button color="secondary" state="default" style="outlined" />
-              </td>
-              <td>
-                <Button color="secondary" state="default" style="text" />
+                <Button color="primary" disabled={true} style="smallText" />
               </td>
             </tr>
             <tr>
               <td>
-                <Button color="secondary" state="disabled" style="fill" />
+                <Button color="secondary" style="fill" />
               </td>
               <td>
-                <Button color="secondary" state="disabled" style="outlined" />
+                <Button color="secondary" style="outlined" />
               </td>
               <td>
-                <Button color="secondary" state="disabled" style="text" />
+                <Button color="secondary" style="text" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button color="secondary" disabled={true} style="fill" />
+              </td>
+              <td>
+                <Button color="secondary" disabled={true} style="outlined" />
+              </td>
+              <td>
+                <Button color="secondary" disabled={true} style="text" />
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className="flex flex-col my-2.5">
+        <Input
+          disabled={false}
+          startIcon={UserIcon}
+          endIcon={CloseCircleIcon}
+        />
+        <Input disabled={true} startIcon={UserIcon} endIcon={CloseCircleIcon} />
+        <Input
+          disabled={false}
+          error={true}
+          startIcon={UserIcon}
+          endIcon={CloseCircleIcon}
+          supportingText="supporting text"
+        />
       </div>
     </div>
   );

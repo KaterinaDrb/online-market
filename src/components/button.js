@@ -1,8 +1,15 @@
 import React from "react";
 
-const Button = ({ color = "primary", state = "default", style = "fill" }) => {
+const Button = ({
+  color = "primary",
+  disabled = false,
+  style = "fill",
+  startIcon: StartIcon,
+  endIcon: EndIcon,
+  ...props
+}) => {
   const baseStyles =
-    "flex items-center w-44 h-12 font-normal px-3 py-2 border-2 rounded-lg";
+    "flex items-center justify-center w-44 h-12 font-normal px-3 py-2 border-2 rounded-lg";
   //состояние: default, hover, disabled
   //цвет: primary, secondary
   //стиль: fill, outlined, text, small text
@@ -10,110 +17,66 @@ const Button = ({ color = "primary", state = "default", style = "fill" }) => {
   const colorStyles = {
     primary: {
       fill: {
-        default: "bg-primary border-primary text-white",
+        default: "bg-primary border-primary text-white cursor-pointer",
         hover: "hover:bg-primary-600 hover:border-primary-600",
-        disabled: "bg-primary-50 text-white border-primary-50",
+        disabled:
+          "bg-primary-50 text-white border-primary-50 cursor-not-allowed",
       },
       outlined: {
-        default: "bg-white border-primary text-primary",
+        default: "bg-white border-primary text-primary cursor-pointer",
         hover: "hover:text-primary-600 hover:border-primary-600",
-        disabled: "bg-white text-primary-50 border-primary-50",
+        disabled:
+          "bg-white text-primary-50 border-primary-50 cursor-not-allowed",
       },
       text: {
-        default: "bg-white border-white text-primary",
+        default: "bg-white border-white text-primary cursor-pointer",
         hover: "hover:text-primary-600",
-        disabled: "bg-white text-primary-50 border-white",
+        disabled: "bg-white text-primary-50 border-white cursor-not-allowed",
       },
       smallText: {
-        default: "bg-white border-white text-primary text-sm",
+        default: "bg-white border-white text-primary text-sm cursor-pointer",
         hover: "hover:text-primary-600",
-        disabled: "bg-white text-primary-50 border-white text-sm",
+        disabled:
+          "bg-white text-primary-50 border-white text-sm cursor-not-allowed",
       },
     },
     secondary: {
       fill: {
-        default: "bg-secondary text-white border-secondary",
+        default: "bg-secondary text-white border-secondary cursor-pointer",
         hover: "hover:bg-secondary-500 hover:border-secondary-500",
-        disabled: "bg-secondary-100 text-white border-secondary-100",
+        disabled:
+          "bg-secondary-100 text-white border-secondary-100 cursor-not-allowed",
       },
       outlined: {
-        default: "bg-white text-secondary border-secondary",
+        default: "bg-white text-secondary border-secondary cursor-pointer",
         hover: "hover:text-secondary-500 hover:border-secondary-500",
-        disabled: "bg-white text-secondary-100 border-secondary-100",
+        disabled:
+          "bg-white text-secondary-100 border-secondary-100 cursor-not-allowed",
       },
       text: {
-        default: "bg-white text-secondary border-white",
+        default: "bg-white text-secondary border-white cursor-pointer",
         hover: "hover:text-secondary-500",
-        disabled: "bg-white text-secondary-100 border-white",
+        disabled: "bg-white text-secondary-100 border-white cursor-not-allowed",
       },
     },
   };
 
   const currentColorStyles = colorStyles[color] || colorStyles.primary;
-  const currentStyles =
-    state === "disabled"
-      ? currentColorStyles[style].disabled
-      : `${currentColorStyles[style].default} ${currentColorStyles[style].hover}`;
-
-  const cartIconStyles = {
-    primary: {
-      default: "text-primary",
-      hover: "hover:text-primary-600",
-      disabled: "text-primary-50",
-    },
-    secondary: {
-      default: "text-secondary",
-      hover: "hover:text-secondary-500",
-      disabled: "text-secondary-100",
-    },
-  };
-
-  let colorClass = "text-white";
-  if (style !== "fill") {
-    colorClass =
-      state === "default"
-        ? cartIconStyles[color].default || cartIconStyles.primary.hover
-        : cartIconStyles[color].disabled || cartIconStyles.primary.disabled;
-  }
+  const currentStyles = disabled
+    ? currentColorStyles[style].disabled
+    : `${currentColorStyles[style].default} ${currentColorStyles[style].hover}`;
 
   return (
     <button
       className={`${baseStyles} ${currentStyles}`}
-      disabled={state === "disabled"}
+      disabled={disabled}
+      {...props}
     >
-      <ShoppingCartIcon colorClass={colorClass} />
+      {StartIcon && <StartIcon />}
       Add to cart
-      <ShoppingCartIcon colorClass={colorClass} />
+      {EndIcon && <EndIcon />}
     </button>
   );
 };
 
 export default Button;
-
-const ShoppingCartIcon = ({ colorClass }) => {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      className={`mx-0.5 ${colorClass}`} // Используем класс для управления цветом
-    >
-      <path
-        d="M18.19 17.75H7.53999C6.54999 17.75 5.59999 17.33 4.92999 16.6C4.25999 15.87 3.92 14.89 4 13.9L4.83 3.94C4.86 3.63 4.74999 3.33001 4.53999 3.10001C4.32999 2.87001 4.04 2.75 3.73 2.75H2C1.59 2.75 1.25 2.41 1.25 2C1.25 1.59 1.59 1.25 2 1.25H3.74001C4.47001 1.25 5.15999 1.56 5.64999 2.09C5.91999 2.39 6.12 2.74 6.23 3.13H18.72C19.73 3.13 20.66 3.53 21.34 4.25C22.01 4.98 22.35 5.93 22.27 6.94L21.73 14.44C21.62 16.27 20.02 17.75 18.19 17.75ZM6.28 4.62L5.5 14.02C5.45 14.6 5.64 15.15 6.03 15.58C6.42 16.01 6.95999 16.24 7.53999 16.24H18.19C19.23 16.24 20.17 15.36 20.25 14.32L20.79 6.82001C20.83 6.23001 20.64 5.67001 20.25 5.26001C19.86 4.84001 19.32 4.60999 18.73 4.60999H6.28V4.62Z"
-        fill="currentColor"
-      />
-      <path
-        d="M16.25 22.75C15.15 22.75 14.25 21.85 14.25 20.75C14.25 19.65 15.15 18.75 16.25 18.75C17.35 18.75 18.25 19.65 18.25 20.75C18.25 21.85 17.35 22.75 16.25 22.75ZM16.25 20.25C15.97 20.25 15.75 20.47 15.75 20.75C15.75 21.03 15.97 21.25 16.25 21.25C16.53 21.25 16.75 21.03 16.75 20.75C16.75 20.47 16.53 20.25 16.25 20.25Z"
-        fill="currentColor"
-      />
-      <path
-        d="M8.25 22.75C7.15 22.75 6.25 21.85 6.25 20.75C6.25 19.65 7.15 18.75 8.25 18.75C9.35 18.75 10.25 19.65 10.25 20.75C10.25 21.85 9.35 22.75 8.25 22.75ZM8.25 20.25C7.97 20.25 7.75 20.47 7.75 20.75C7.75 21.03 7.97 21.25 8.25 21.25C8.53 21.25 8.75 21.03 8.75 20.75C8.75 20.47 8.53 20.25 8.25 20.25Z"
-        fill="currentColor"
-      />
-      <path
-        d="M21 8.75H9C8.59 8.75 8.25 8.41 8.25 8C8.25 7.59 8.59 7.25 9 7.25H21C21.41 7.25 21.75 7.59 21.75 8C21.75 8.41 21.41 8.75 21 8.75Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-};
