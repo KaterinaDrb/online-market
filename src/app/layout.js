@@ -17,19 +17,28 @@ export default function RootLayout({ children }) {
             <Image src="/logo.svg" alt="Logo" width={55} height={55} />
           </div>
           <div className="flex flex-grow text-center space-x-12 justify-center items-center">
-            <Link href="/" className="hover:text-primary">
+            <Link href="/" className="hover:text-primary focus:outline-none">
               Home
             </Link>
-            <Link href="/products" className="hover:text-primary">
+            <Link
+              href="/products"
+              className="hover:text-primary focus:outline-none"
+            >
               Products
             </Link>
-            <Link href="/blog" className="hover:text-primary">
+            <Link
+              href="/blog"
+              className="hover:text-primary focus:outline-none"
+            >
               Blog
             </Link>
-            <Link href="/faq" className="hover:text-primary">
+            <Link href="/faq" className="hover:text-primary focus:outline-none">
               FAQ
             </Link>
-            <Link href="/contactus" className="hover:text-primary">
+            <Link
+              href="/contactus"
+              className="hover:text-primary focus:outline-none"
+            >
               Contact Us
             </Link>
           </div>
