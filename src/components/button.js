@@ -4,6 +4,7 @@ const Button = ({
   color = "primary",
   disabled = false,
   style = "fill",
+  label = "Add to cart",
   startIcon: StartIcon,
   endIcon: EndIcon,
   ...props
@@ -73,7 +74,7 @@ const Button = ({
       {...props}
     >
       {StartIcon && <StartIcon />}
-      Add to cart
+      {label}
       {EndIcon && <EndIcon />}
     </button>
   );

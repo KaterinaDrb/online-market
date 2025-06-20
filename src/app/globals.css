@@ -36,3 +36,19 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.table-striped tbody tr:nth-child(odd) {
+  @apply bg-gray-50;
+}
+
+.table-striped tbody tr:nth-child(even) {
+  @apply bg-white;
+}
+
+.table-striped tbody td {
+  @apply px-4 py-4;
+}
+
+.info tbody td {
+  @apply px-2 py-1;
+}
