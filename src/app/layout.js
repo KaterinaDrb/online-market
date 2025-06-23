@@ -11,6 +11,7 @@ const inter = Inter({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         <header className="relative flex p-4 bg-white text-black">
           <div className="flex items-center ml-10">
@@ -60,7 +61,9 @@ export default function RootLayout({ children }) {
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary mt-2"></div>
         </header>
-        <div className="{`${inter.variable} font-sans`}">{children}</div>
+        <div className="{`${inter.variable} font-sans`} xl:max-w-7xl 2xl:max-w-7xl mx-auto">
+          {children}
+        </div>
       </body>
     </html>
   );
