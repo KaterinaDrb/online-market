@@ -11,7 +11,15 @@ export default function ProductPage() {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
 
-  const selectedProducts = products.slice(0, 4);
+  const startIndex = product.id;
+  const endIndex = startIndex + 4;
+
+  const productsLength = products.length;
+
+  const selectedProducts = [];
+  for (let i = startIndex; i < endIndex; i++) {
+    selectedProducts.push(products[i % productsLength]);
+  }
 
   return (
     <div className="mx-20 my-16">

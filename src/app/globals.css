@@ -12,6 +12,7 @@
   --color-primary-500: oklch(37.03% 0.14 259.71);
   --color-primary-600: oklch(31.85% 0.118 259.63);
   --color-primary-700: oklch(26.71% 0.093 258.91);
+  --color-primary-900: oklch(20.91% 0.067 256.95);
   --color-secondary: oklch(66.91% 0.199 41.76);
   --color-secondary-100: oklch(91.51% 0.045 49.64);
   --color-secondary-500: oklch(55.67% 0.163 42.19);
@@ -51,4 +52,14 @@ body {
 
 .info tbody td {
   @apply px-2 py-1;
+}
+
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(
+      ellipse 50% 30% at bottom,
+      oklch(37.03% 0.14 259.71),
+      oklch(20.91% 0.067 256.95)
+    );
+  }
 }
