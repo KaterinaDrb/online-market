@@ -61,7 +61,7 @@ export default function Home() {
         </div>
         <div className="w-44 h-48 flex flex-col justify-between items-center shadow-md py-2 px-5">
           <Image
-            src="/smart Watch.png"
+            src="/smart watch.png"
             alt="Smart Watch"
             width={148}
             height={148}

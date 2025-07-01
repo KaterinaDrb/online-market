@@ -77,7 +77,7 @@ const ProductCard = ({ name, oldPrice, newPrice, discount, image, rating }) => {
         </div>
 
         <div className="flex items-center">
-          <Image src="/star.png" alt="star" height={20} width={20} />
+          <Image src="/Star.svg" alt="star" height={20} width={20} />
           <p className="text-primary-500 font-medium text-base ml-1">
             {rating}
           </p>
