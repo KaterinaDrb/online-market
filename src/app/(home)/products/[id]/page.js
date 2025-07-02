@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import Button from "../../../components/button";
-import { products } from "../../../components/ProductList";
-import ProductCard from "../../../components/ProductCard";
+import Button from "../../../../components/button";
+import { products } from "../../../../components/ProductList";
+import ProductCard from "../../../../components/ProductCard";
 
 import { useParams } from "next/navigation";
 import Link from "next/link";

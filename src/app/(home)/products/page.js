@@ -1,6 +1,5 @@
-import ProductCard from "../../components/ProductCard";
 import Image from "next/image";
-import ProductList from "../../components/ProductList";
+import ProductList from "../../../components/ProductList";
 
 export default function Products() {
   return (

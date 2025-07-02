@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import Button from "../components/button";
-import Input from "../components/input";
-import ShoppingCartIcon from "../components/ShoppingCartIcon";
-import UserIcon from "../components/UserIcon";
-import CloseCircleIcon from "../components/CloseCircleIcon";
+import Button from "../../components/button";
+import Input from "../../components/input";
+import ShoppingCartIcon from "../../components/ShoppingCartIcon";
+import UserIcon from "../../components/UserIcon";
+import CloseCircleIcon from "../../components/CloseCircleIcon";
 
 export default function Home() {
   return (
